@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for i in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune
+	do 
+	curl "http://en.wikipedia.org/wiki/$i" > $i.html
+	if [ -s $i.txt ]
+		then
+			echo "$i is there"
+		else
+			echo "$i no se senor"
+	fi
+
+git add $i.txt
+git commit -m "$i info"
+git push https://github.com/johnschrisa/planets.git
+done
